@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="모멘텀랩스 — 데이터와 디자인으로 비즈니스의 순간을 바꾸는 소프트웨어 스튜디오입니다.">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0b1020" media="(prefers-color-scheme: dark)">
+    <title>모멘텀랩스 — 회사 소개</title>
+    <style>
+        :root {
+            color-scheme: light;
+            --bg: #ffffff;
+            --bg-subtle: #f6f7f9;
+            --fg: #111827;
+            --fg-muted: #4b5563;
+            --accent: #4f46e5;
+            --accent-hover: #4338ca;
+            --accent-fg: #ffffff;
+            --border: #e5e7eb;
+            --card: #ffffff;
+            --ring: #4f46e5;
+            --error: #dc2626;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                color-scheme: dark;
+                --bg: #0b1020;
+                --bg-subtle: #111830;
+                --fg: #f3f4f6;
+                --fg-muted: #9ca3af;
+                --accent: #818cf8;
+                --accent-hover: #a5b4fc;
+                --accent-fg: #0b1020;
+                --border: #26304d;
+                --card: #111830;
+                --ring: #a5b4fc;
+                --error: #f87171;
+            }
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        html {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        @media (pointer: fine) {
+            html {
+                overscroll-behavior: none;
+            }
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            html {
+                scroll-behavior: smooth;
+            }
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--fg);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+            line-height: 1.6;
+            overflow-x: clip;
+        }
+
+        h1, h2, h3 {
+            line-height: 1.25;
+            text-wrap: balance;
+            margin: 0 0 0.5em;
+        }
+
+        p {
+            margin: 0 0 1em;
+        }
+
+        a {
+            color: var(--accent);
+            text-decoration: none;
+            touch-action: manipulation;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            color: var(--accent-hover);
+            text-decoration: underline;
+            text-underline-offset: 0.2em;
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--ring);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        .container {
+            width: min(1080px, 100% - 2.5rem);
+            margin-inline: auto;
+        }
+
+        section[id] {
+            scroll-margin-top: 5rem;
+        }
+
+        /* Skip link */
+        .skip-link {
+            position: absolute;
+            top: -100%;
+            left: 1rem;
+            z-index: 100;
+            background: var(--accent);
+            color: var(--accent-fg);
+            padding: 0.6rem 1rem;
+            border-radius: 0 0 8px 8px;
+            font-weight: 600;
+        }
+
+        .skip-link:focus-visible {
+            top: 0;
+            color: var(--accent-fg);
+        }
+
+        /* Header */
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: color-mix(in srgb, var(--bg) 85%, transparent);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            padding-left: env(safe-area-inset-left);
+            padding-right: env(safe-area-inset-right);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem 1rem;
+            padding-block: 0.9rem;
+        }
+
+        .brand {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--fg);
+            letter-spacing: -0.02em;
+        }
+
+        .brand:hover {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.25rem 1.25rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: var(--fg-muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            padding: clamp(4rem, 10vw, 7.5rem) 0 clamp(3.5rem, 8vw, 6rem);
+            background:
+                radial-gradient(60rem 30rem at 80% -10%, color-mix(in srgb, var(--accent) 14%, transparent), transparent 70%),
+                var(--bg);
+        }
+
+        .hero .eyebrow {
+            display: inline-block;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 5.4vw, 3.4rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            max-width: 22ch;
+        }
+
+        .hero p {
+            font-size: clamp(1.05rem, 2vw, 1.2rem);
+            color: var(--fg-muted);
+            max-width: 52ch;
+            text-wrap: pretty;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            min-height: 2.75rem;
+            padding: 0.65rem 1.4rem;
+            border-radius: 10px;
+            border: 1px solid transparent;
+            font: inherit;
+            font-weight: 600;
+            cursor: pointer;
+            touch-action: manipulation;
+            transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+        }
+
+        .btn:hover {
+            text-decoration: none;
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--accent-fg);
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-hover);
+            color: var(--accent-fg);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--fg);
+            border-color: var(--border);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Sections */
+        .section {
+            padding: clamp(3.5rem, 8vw, 5.5rem) 0;
+        }
+
+        .section-alt {
+            background: var(--bg-subtle);
+        }
+
+        .section h2 {
+            font-size: clamp(1.5rem, 3.4vw, 2.1rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+        }
+
+        .section .lead {
+            color: var(--fg-muted);
+            max-width: 60ch;
+            text-wrap: pretty;
+        }
+
+        /* Cards */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+            gap: 1.25rem;
+            margin-top: 2.25rem;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.5rem;
+            min-width: 0;
+            transition: border-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        .card p {
+            color: var(--fg-muted);
+            font-size: 0.95rem;
+            margin: 0;
+            overflow-wrap: break-word;
+        }
+
+        .card .icon {
+            display: inline-flex;
+            width: 2.5rem;
+            height: 2.5rem;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: color-mix(in srgb, var(--accent) 12%, transparent);
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        /* Stats */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(160px, 100%), 1fr));
+            gap: 1.5rem;
+            margin-top: 2.25rem;
+        }
+
+        .stat {
+            min-width: 0;
+        }
+
+        .stat .value {
+            display: block;
+            font-size: clamp(2rem, 4.5vw, 2.75rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: var(--accent);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .stat .label {
+            color: var(--fg-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            list-style: none;
+            margin: 2.25rem 0 0;
+            padding: 0;
+            border-left: 2px solid var(--border);
+        }
+
+        .timeline li {
+            position: relative;
+            padding: 0 0 1.75rem 1.75rem;
+        }
+
+        .timeline li::before {
+            content: "";
+            position: absolute;
+            left: -7px;
+            top: 0.45rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+        }
+
+        .timeline time {
+            display: block;
+            font-weight: 800;
+            font-variant-numeric: tabular-nums;
+            color: var(--accent);
+        }
+
+        .timeline p {
+            margin: 0.15rem 0 0;
+            color: var(--fg-muted);
+        }
+
+        /* Form */
+        .contact-form {
+            display: grid;
+            gap: 1.25rem;
+            max-width: 34rem;
+            margin-top: 2.25rem;
+        }
+
+        .field {
+            display: grid;
+            gap: 0.4rem;
+        }
+
+        .field label {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .field input,
+        .field textarea {
+            font: inherit;
+            color: var(--fg);
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 0.7rem 0.9rem;
+            width: 100%;
+            transition: border-color 0.2s ease;
+        }
+
+        .field input:hover,
+        .field textarea:hover {
+            border-color: var(--fg-muted);
+        }
+
+        .field input:focus-visible,
+        .field textarea:focus-visible {
+            outline: 2px solid var(--ring);
+            outline-offset: 1px;
+            border-color: var(--accent);
+        }
+
+        .field input[aria-invalid="true"],
+        .field textarea[aria-invalid="true"] {
+            border-color: var(--error);
+        }
+
+        .field .error {
+            margin: 0;
+            font-size: 0.875rem;
+            color: var(--error);
+        }
+
+        .form-status {
+            margin: 0;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .spinner {
+            width: 1em;
+            height: 1em;
+            border: 2px solid currentColor;
+            border-top-color: transparent;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        /* Footer */
+        .site-footer {
+            border-top: 1px solid var(--border);
+            padding: 2.5rem 0 calc(2.5rem + env(safe-area-inset-bottom));
+            padding-left: env(safe-area-inset-left);
+            padding-right: env(safe-area-inset-right);
+            color: var(--fg-muted);
+            font-size: 0.9rem;
+        }
+
+        .site-footer .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 1rem 2rem;
+        }
+
+        .site-footer address {
+            font-style: normal;
+            margin: 0;
+        }
+
+        /* Reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            .reveal {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+
+            .card,
+            .btn,
+            a {
+                transition: none;
+            }
+
+            .spinner {
+                animation: none;
+            }
+        }
+    </style>
+</head>
+<body id="top">
+    <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+
+    <header class="site-header">
+        <nav class="nav container" aria-label="주 메뉴">
+            <a class="brand" href="#top" translate="no">모멘텀&nbsp;랩스</a>
+            <ul class="nav-links">
+                <li><a href="#about">회사 소개</a></li>
+                <li><a href="#services">서비스</a></li>
+                <li><a href="#history">연혁</a></li>
+                <li><a href="#contact">문의</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main">
+        <section class="hero">
+            <div class="container">
+                <span class="eyebrow">Software Studio</span>
+                <h1>데이터와 디자인으로 비즈니스의 순간을 바꿉니다</h1>
+                <p>모멘텀랩스는 “기술은 사람을 위해 존재한다”는 믿음으로, 제품 전략부터 개발·운영까지 함께하는 소프트웨어 스튜디오입니다. 당신의 아이디어가 세상에 닿는 순간을 만듭니다.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#contact">프로젝트 문의하기</a>
+                    <a class="btn btn-secondary" href="#about">회사 더 알아보기</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="about">
+            <div class="container reveal">
+                <h2>회사 소개</h2>
+                <p class="lead">2019년에 시작한 모멘텀랩스는 스타트업부터 대기업까지 320개가 넘는 프로젝트를 함께했습니다. 작게 시작해 빠르게 검증하고, 데이터로 더 나은 결정을 내리는 방식으로 일합니다.</p>
+                <div class="stats">
+                    <div class="stat">
+                        <span class="value">12&nbsp;년</span>
+                        <span class="label">팀 평균 경력</span>
+                    </div>
+                    <div class="stat">
+                        <span class="value">320+</span>
+                        <span class="label">완료한 프로젝트</span>
+                    </div>
+                    <div class="stat">
+                        <span class="value">98%</span>
+                        <span class="label">고객 만족도</span>
+                    </div>
+                    <div class="stat">
+                        <span class="value">8개국</span>
+                        <span class="label">글로벌 서비스 지역</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" id="services">
+            <div class="container reveal">
+                <h2>핵심 서비스</h2>
+                <p class="lead">전략, 디자인, 개발, 운영 — 제품의 전 과정을 하나의 팀이 책임집니다.</p>
+                <div class="card-grid">
+                    <article class="card">
+                        <span class="icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                        </span>
+                        <h3>제품 전략 &amp; 디자인</h3>
+                        <p>사용자 인터뷰와 데이터 분석으로 방향을 정하고, 프로토타입으로 빠르게 검증합니다.</p>
+                    </article>
+                    <article class="card">
+                        <span class="icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                        </span>
+                        <h3>웹 &amp; 앱 개발</h3>
+                        <p>접근성과 성능을 기본으로 갖춘 웹·모바일 제품을 안정적으로 출시합니다.</p>
+                    </article>
+                    <article class="card">
+                        <span class="icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                        </span>
+                        <h3>데이터 플랫폼</h3>
+                        <p>흩어진 데이터를 한곳에 모아 의사결정에 바로 쓸 수 있는 대시보드를 만듭니다.</p>
+                    </article>
+                    <article class="card">
+                        <span class="icon" aria-hidden="true">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"/></svg>
+                        </span>
+                        <h3>클라우드 운영</h3>
+                        <p>배포 자동화와 모니터링으로 24시간 끊기지 않는 서비스를 운영합니다.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="history">
+            <div class="container reveal">
+                <h2>연혁</h2>
+                <p class="lead">모멘텀랩스가 걸어온 길입니다.</p>
+                <ol class="timeline">
+                    <li>
+                        <time datetime="2019">2019</time>
+                        <p>모멘텀랩스 설립, 첫 SaaS 제품 출시</p>
+                    </li>
+                    <li>
+                        <time datetime="2021">2021</time>
+                        <p>Series&nbsp;A 투자 유치, 데이터 플랫폼 사업부 신설</p>
+                    </li>
+                    <li>
+                        <time datetime="2023">2023</time>
+                        <p>일본·싱가포르 지사 설립, 8개국 서비스 시작</p>
+                    </li>
+                    <li>
+                        <time datetime="2025">2025</time>
+                        <p>누적 프로젝트 320개 돌파, 임직원 120명</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="section section-alt" id="contact">
+            <div class="container reveal">
+                <h2>문의하기</h2>
+                <p class="lead">프로젝트 이야기를 들려주세요. 영업일 기준 1일 안에 답변드립니다.</p>
+                <form class="contact-form" id="contact-form" novalidate>
+                    <div class="field">
+                        <label for="name">이름</label>
+                        <input id="name" name="name" type="text" autocomplete="name" placeholder="홍길동…" required aria-describedby="name-error">
+                        <p class="error" id="name-error" hidden>이름을 입력해 주세요.</p>
+                    </div>
+                    <div class="field">
+                        <label for="email">이메일</label>
+                        <input id="email" name="email" type="email" inputmode="email" autocomplete="email" spellcheck="false" placeholder="you@example.com…" required aria-describedby="email-error">
+                        <p class="error" id="email-error" hidden>올바른 이메일 주소를 입력해 주세요. 예: you@example.com</p>
+                    </div>
+                    <div class="field">
+                        <label for="message">문의 내용</label>
+                        <textarea id="message" name="message" rows="5" placeholder="프로젝트의 목표와 일정을 알려주세요…" required aria-describedby="message-error"></textarea>
+                        <p class="error" id="message-error" hidden>문의 내용을 입력해 주세요.</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary" type="submit" id="submit-btn">문의 보내기</button>
+                    </div>
+                    <p class="form-status" id="form-status" aria-live="polite"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <address>
+                <strong translate="no">모멘텀&nbsp;랩스</strong><br>
+                서울특별시 강남구 테헤란로 123, 5층<br>
+                <a href="mailto:hello@momentumlabs.example">hello@momentumlabs.example</a> · <a href="tel:+82212345678">02-1234-5678</a>
+            </address>
+            <p>© <span id="year">2026</span> Momentum Labs. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Footer year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Scroll reveal (skipped under prefers-reduced-motion via CSS)
+        const revealEls = document.querySelectorAll('.reveal');
+        if ('IntersectionObserver' in window) {
+            const observer = new IntersectionObserver((entries) => {
+                for (const entry of entries) {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                }
+            }, { threshold: 0.15 });
+            revealEls.forEach((el) => observer.observe(el));
+        } else {
+            revealEls.forEach((el) => el.classList.add('is-visible'));
+        }
+
+        // Contact form validation & submit
+        const form = document.getElementById('contact-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const status = document.getElementById('form-status');
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        function setError(input, errorEl, show) {
+            input.setAttribute('aria-invalid', String(show));
+            errorEl.hidden = !show;
+        }
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            status.textContent = '';
+
+            const name = form.elements.name;
+            const email = form.elements.email;
+            const message = form.elements.message;
+
+            const checks = [
+                [name, document.getElementById('name-error'), name.value.trim() === ''],
+                [email, document.getElementById('email-error'), !emailPattern.test(email.value.trim())],
+                [message, document.getElementById('message-error'), message.value.trim() === ''],
+            ];
+
+            let firstInvalid = null;
+            for (const [input, errorEl, invalid] of checks) {
+                setError(input, errorEl, invalid);
+                if (invalid && !firstInvalid) firstInvalid = input;
+            }
+
+            if (firstInvalid) {
+                firstInvalid.focus();
+                return;
+            }
+
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<span class="spinner" aria-hidden="true"></span> 보내는 중…';
+            submitBtn.setAttribute('aria-busy', 'true');
+
+            setTimeout(() => {
+                submitBtn.disabled = false;
+                submitBtn.textContent = '문의 보내기';
+                submitBtn.removeAttribute('aria-busy');
+                form.reset();
+                status.textContent = '문의가 접수되었습니다. 영업일 기준 1일 안에 답변드리겠습니다.';
+            }, 1200);
+        });
+    </script>
+</body>
+</html>
