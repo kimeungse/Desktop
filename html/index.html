@@ -3,12 +3,209 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test</title>
+    <meta name="description" content="Register for your next exam with the Nexa student portal.">
+    <title>Nexa | Exam Registration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styse.css">
 </head>
-<body style="background-color:lightgray;">
-    <h1 style="color:black;text-align:center;">Welcome to My Website</h1>
-    <button style="color:white;background-color:green;font-size:18px;border-style:none;border-radius:10px;" padding="12px 30px 12px 30px">Click Me</button>
+<body>
+    <header class="site-header">
+        <a class="brand" href="#top" aria-label="Nexa home">
+            <span class="brand-mark" aria-hidden="true">N</span>
+            <span>Nexa</span>
+        </a>
+        <nav class="desktop-nav" aria-label="Main navigation">
+            <a class="active" href="#register">Registration</a>
+            <a href="#schedule">Schedule</a>
+            <a href="#support">Support</a>
+        </nav>
+        <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
+        <a class="header-action" href="#register">Register now <span aria-hidden="true">↗</span></a>
+    </header>
 
+    <main id="top">
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-copy">
+                <p class="eyebrow"><span></span> 2026 Admissions Open</p>
+                <h1 id="hero-title">Your next chapter starts here.</h1>
+                <p class="hero-description">Pick your exam, choose a date, and secure your place in a few minutes. Clear steps, no surprises.</p>
+                <div class="hero-actions">
+                    <a class="primary-button" href="#register">Start registration <span aria-hidden="true">→</span></a>
+                    <a class="text-button" href="#schedule">View schedule <span aria-hidden="true">↓</span></a>
+                </div>
+                <div class="trust-row" aria-label="Registration benefits">
+                    <span><b>4 min</b> average setup</span>
+                    <span><b>Free</b> date changes</span>
+                    <span><b>24/7</b> student support</span>
+                </div>
+            </div>
+            <div class="hero-visual" aria-label="Student studying in a library">
+                <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=85" alt="Students collaborating around a table">
+                <div class="image-label"><span>01</span> Prepare with purpose</div>
+                <div class="score-card">
+                    <span class="score-icon" aria-hidden="true">✓</span>
+                    <div><strong>Ready to register?</strong><small>Places available nationwide</small></div>
+                </div>
+            </div>
+        </section>
 
+        <section class="registration-section" id="register" aria-labelledby="register-title">
+            <div class="section-heading">
+                <div>
+                    <p class="section-number">01 / REGISTRATION</p>
+                    <h2 id="register-title">Reserve your exam.</h2>
+                </div>
+                <p>Complete the form below. We’ll send your confirmation and preparation guide by email.</p>
+            </div>
+
+            <div class="registration-layout">
+                <form id="exam-form" novalidate>
+                    <div class="form-grid">
+                        <div class="field full-width">
+                            <label for="name">Full name</label>
+                            <input id="name" name="name" type="text" autocomplete="name" placeholder="Your full name" required>
+                            <span class="field-error">Please enter your full name.</span>
+                        </div>
+                        <div class="field">
+                            <label for="email">Email address</label>
+                            <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+                            <span class="field-error">Enter a valid email address.</span>
+                        </div>
+                        <div class="field">
+                            <label for="phone">Phone number</label>
+                            <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+992 90 000 0000" required>
+                            <span class="field-error">Please enter your phone number.</span>
+                        </div>
+                        <div class="field">
+                            <label for="exam">Exam</label>
+                            <select id="exam" name="exam" required>
+                                <option value="">Choose an exam</option>
+                                <option>English Language</option>
+                                <option>Mathematics</option>
+                                <option>Computer Science</option>
+                                <option>Science & Technology</option>
+                            </select>
+                            <span class="field-error">Please choose an exam.</span>
+                        </div>
+                        <div class="field">
+                            <label for="date">Preferred date</label>
+                            <input id="date" name="date" type="date" required>
+                            <span class="field-error">Please choose a date.</span>
+                        </div>
+                        <div class="field full-width">
+                            <label for="country">Country of residence</label>
+                            <select id="country" name="country" required>
+                                <option value="">Choose your country</option>
+                                <option>Tajikistan</option>
+                                <option>Uzbekistan</option>
+                                <option>Kyrgyzstan</option>
+                                <option>Kazakhstan</option>
+                                <option>Other</option>
+                            </select>
+                            <span class="field-error">Please choose your country.</span>
+                        </div>
+                    </div>
+                    <label class="consent">
+                        <input name="consent" type="checkbox" required>
+                        <span>I agree to the registration terms and privacy policy.</span>
+                    </label>
+                    <button class="submit-button" type="submit">Confirm registration <span aria-hidden="true">→</span></button>
+                    <p class="form-note">No payment is required to reserve your place.</p>
+                </form>
+
+                <aside class="steps" aria-label="Registration process">
+                    <p class="steps-title">What happens next?</p>
+                    <ol>
+                        <li><span>01</span><div><strong>Submit your details</strong><p>Tell us which exam you want to take.</p></div></li>
+                        <li><span>02</span><div><strong>Check your inbox</strong><p>We’ll send the venue, time, and preparation pack.</p></div></li>
+                        <li><span>03</span><div><strong>Arrive ready</strong><p>Bring your confirmation and a valid ID.</p></div></li>
+                    </ol>
+                    <div class="help-card" id="support">
+                        <span aria-hidden="true">?</span>
+                        <div><strong>Need a hand?</strong><p>Our student team is online weekdays, 9–5.</p><a href="mailto:hello@nexa.example">Talk to us →</a></div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section class="schedule-section" id="schedule" aria-labelledby="schedule-title">
+            <div>
+                <p class="section-number">02 / UPCOMING DATES</p>
+                <h2 id="schedule-title">Find a date that fits.</h2>
+            </div>
+            <div class="date-list">
+                <article><span class="date-day">12</span><div><strong>DEC</strong><p>English Language · 09:00</p></div><span class="availability">Places open</span></article>
+                <article><span class="date-day">18</span><div><strong>JAN</strong><p>Mathematics · 10:30</p></div><span class="availability">Places open</span></article>
+                <article><span class="date-day">24</span><div><strong>JAN</strong><p>Computer Science · 13:00</p></div><span class="availability limited">Limited</span></article>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">N</span><span>Nexa</span></a>
+        <p>Education is a beginning, not a finish line.</p>
+        <p>© 2026 Nexa Learning</p>
+    </footer>
+
+    <div class="success-modal" role="dialog" aria-modal="true" aria-labelledby="success-title" hidden>
+        <div class="success-content">
+            <span class="success-check" aria-hidden="true">✓</span>
+            <p class="eyebrow">REGISTRATION RECEIVED</p>
+            <h2 id="success-title">You’re on the list.</h2>
+            <p>Thanks, <strong id="registered-name"></strong>. Your exam details are on their way to your inbox.</p>
+            <button type="button" id="close-modal">Done</button>
+        </div>
+    </div>
+
+    <script>
+        const menuButton = document.querySelector('.menu-button');
+        const nav = document.querySelector('.desktop-nav');
+        const form = document.querySelector('#exam-form');
+        const modal = document.querySelector('.success-modal');
+        const closeModal = document.querySelector('#close-modal');
+        const dateInput = document.querySelector('#date');
+
+        dateInput.min = new Date().toISOString().split('T')[0];
+        menuButton.addEventListener('click', () => {
+            const isOpen = nav.classList.toggle('open');
+            menuButton.setAttribute('aria-expanded', isOpen);
+        });
+        nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+            nav.classList.remove('open');
+            menuButton.setAttribute('aria-expanded', 'false');
+        }));
+        form.addEventListener('submit', event => {
+            event.preventDefault();
+            let valid = true;
+            form.querySelectorAll('[required]').forEach(field => {
+                const invalid = !field.checkValidity();
+                field.closest('.field')?.classList.toggle('invalid', invalid);
+                if (invalid) valid = false;
+            });
+            if (!valid) {
+                form.querySelector(':invalid')?.focus();
+                return;
+            }
+            document.querySelector('#registered-name').textContent = form.elements.name.value.split(' ')[0];
+            modal.hidden = false;
+            document.body.classList.add('modal-open');
+            closeModal.focus();
+        });
+        closeModal.addEventListener('click', () => {
+            modal.hidden = true;
+            document.body.classList.remove('modal-open');
+            form.reset();
+        });
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape' && !modal.hidden) closeModal.click();
+        });
+        form.addEventListener('input', event => {
+            event.target.closest('.field')?.classList.toggle('invalid', !event.target.checkValidity());
+        });
+    </script>
 </body>
 </html>
